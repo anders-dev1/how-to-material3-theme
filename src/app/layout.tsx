@@ -3,6 +3,8 @@ import {Roboto} from 'next/font/google'
 import './globals.css'
 import Providers from "@/app/providers";
 
+const roboto = Roboto({weight:["100", "300", "400", "500", "700", "900"], subsets:['latin']});
+
 export const metadata: Metadata = {
     title: 'How to use Material 3 theme in React/NextJS',
     description: 'Go to andersmadsen.dev for more stuff.',
@@ -13,11 +15,7 @@ export default function RootLayout({children}: {
 }) {
     return (
         <html lang="en" suppressHydrationWarning={true}>
-        <head>
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"
-                  rel="stylesheet"/>
-        </head>
-        <body>
+        <body className={`surface ${roboto.className}`}>
         <Providers>
             {children}
         </Providers>
